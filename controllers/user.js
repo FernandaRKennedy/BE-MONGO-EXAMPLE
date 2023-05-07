@@ -24,6 +24,18 @@ router.get('/username/:username', async (req,res) =>{
     }
   })
 
+  //Get retreive user by username 
+router.get('/email/:email', async (req,res) =>{
+    const { email } = req.params
+    try {
+      const user = await User.find({ email })
+      res.json(user)
+    } catch (error) {
+      console.log(error)
+      res.json({'message': 'error retrieving user'})
+    }
+  })
+
   //Get retreive user byid
 router.get('/id/:id', async (req,res) =>{
     const { id } = req.params
@@ -53,7 +65,7 @@ router.delete('/id/:id', async (req,res) =>{
       res.json({'message': 'error deleting user'})
     }
   })
-  
+
 //post creat user
 router.post('/', async (req, res) =>{
    try {

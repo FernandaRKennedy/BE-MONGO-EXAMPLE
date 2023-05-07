@@ -24,7 +24,7 @@ router.get('/username/:username', async (req,res) =>{
     }
   })
 
-  //Get retreive user by username 
+  //Get retreive user by email
 router.get('/email/:email', async (req,res) =>{
     const { email } = req.params
     try {
